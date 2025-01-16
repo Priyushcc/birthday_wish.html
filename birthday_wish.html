@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hrituka</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #ff7eb3, #ff758c);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            animation: fadeIn 3s ease;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            animation: slideIn 3s ease;
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            background: #fff;
+            opacity: 0.8;
+            transform: rotate(45deg);
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -0.5rem;
+            left: 0;
+        }
+
+        .heart:after {
+            left: -0.5rem;
+            top: 0;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-200px) rotate(45deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, Hrituka! 🎉</h1>
+        <p>You are an amazing person with a heart full of love and kindness.</p>
+        <p>May your day be as beautiful as you are, filled with happiness and joy!</p>
+    </div>
+    <div class="hearts" id="hearts"></div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            const size = Math.random() * 20 + 10 + 'px';
+            heart.style.width = size;
+            heart.style.height = size;
+
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+
+            document.getElementById('hearts').appendChild(heart);
+
+            setTimeout(() => heart.remove(), 4000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
